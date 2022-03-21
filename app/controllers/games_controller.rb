@@ -14,8 +14,9 @@ class GamesController < ApplicationController
     @letters = params[:letters]
     @included = include?(@word, @letters)
     url = "https://wagon-dictionary.herokuapp.com/#{@word}"
-    user_word = URI.open(url).read
-    @word_checked = JSON.parse(user_word)
+    @word = URI.open(url).read
+    @word_checked = JSON.parse(@word)
+    if @word == true
 
   end
 
